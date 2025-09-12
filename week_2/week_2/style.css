@@ -1,6 +1,13 @@
+/* <!-- AI Assistance Comment:
+     I used AI to help generate and refine the CSS code for this page, 
+     including layout, color choices, and accessibility improvements. 
+     AI provided suggestions for professional design elements and helped 
+     me quickly implement features and fix issues.
+--> */
+
 body {
-    background-color: #222831; /* Dark background */
-    color: #f4f6f8;           /* Light text */
+    background-color: #222831; 
+    color: #f4f6f8;           
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -11,7 +18,7 @@ body {
 }
 
 a {
-    color: #00adb5;           /* Bright accent for links */
+    color: #00adb5;           
     text-decoration: none;
     font-weight: 500;
 }
@@ -38,13 +45,13 @@ img {
     display: block;
     margin: 0 auto;
     max-width: 100%;
-    border: 4px solid #00adb5;   /* Bright teal frame for contrast */
+    border: 4px solid #00adb5;  
     border-radius: 12px;         
-    box-shadow: 0 8px 24px rgba(0,0,0,0.28); /* Stronger drop shadow */
+    box-shadow: 0 8px 24px rgba(0,0,0,0.28); 
 }
 
 .about-box {
-    background: #393e46;      /* Slightly lighter dark box */
+    background: #393e46;      
     border: 2px solid #333333;
     border-radius: 12px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.18);
