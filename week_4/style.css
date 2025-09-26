@@ -285,3 +285,87 @@ footer {
     font-size: 1.05em;
     margin-bottom: 0;
 }
+.resume-section {
+    max-width: 800px;
+    margin: 2em auto;
+    background: #232323;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    padding: 2.5em 2em;
+    color: #fff;
+}.resume-section .subtitle {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 400;
+    margin-bottom: 1em;
+    color: #fff;
+    letter-spacing: 0.5px;
+}
+
+.resume-section h1 {
+    text-align: center;
+    margin-bottom: 0.5em;
+    font-size: 2.2em;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.resume-section h2 {
+    margin-top: 2em;
+    color: #fff;
+    font-size: 1.4em;
+    border-bottom: 1px solid #686868;
+    padding-bottom: 0.3em;
+    margin-bottom: 1em;
+    font-weight: 600;
+}
+
+.resume-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5em 0;
+}
+
+.resume-list li {
+    margin-bottom: 1.5em;
+    line-height: 1.7;
+    font-size: 1.08em;
+}
+
+.resume-section a {
+    color: #0045b5;
+    text-decoration: underline;
+    word-break: break-all;
+}
+
+.resume-section a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.resume-date {
+    color: #ccc;
+    font-size: 0.98em;
+    margin-left: 0.5em;
+}
+
+.resume-section ul ul {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    padding-left: 1.2em;
+}
+
+.resume-section ul ul li {
+    margin-bottom: 0.5em;
+    font-size: 1em;
+    list-style: disc;
+}
+
+@media (max-width: 900px) {
+    .resume-section {
+        padding: 1.2em 0.5em;
+    }
+    .resume-section h1 {
+        font-size: 1.5em;
+    }
+}
