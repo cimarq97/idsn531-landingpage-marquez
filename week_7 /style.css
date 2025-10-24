@@ -412,6 +412,14 @@ footer {
 }
 
 /* ===== Resume ===== */
+.resume-section h1 {
+  text-align: center;
+  margin-bottom: 0.5em;
+  font-size: 2.2em;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
 .resume-section {
   max-width: 800px;
   margin: 2em auto;
@@ -420,14 +428,6 @@ footer {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
   padding: 2.5em 2em;
   color: var(--fg);
-}
-
-.resume-section h1 {
-  text-align: center;
-  margin-bottom: 0.5em;
-  font-size: 2.2em;
-  font-weight: 700;
-  letter-spacing: 1px;
 }
 
 .resume-section .subtitle {

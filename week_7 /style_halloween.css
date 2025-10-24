@@ -593,6 +593,138 @@
   margin-bottom: 0;
   text-shadow: 0 0 5px var(--halloween-green);
 }
+/* ===== Resume (Halloween) ===== */
+.halloween .resume-section {
+  max-width: 800px;
+  margin: 2em auto;
+  background: linear-gradient(
+    180deg,
+    var(--halloween-dark) 0%,
+    rgba(0,0,0,0.92) 100%
+  );
+  border: 3px solid var(--halloween-purple);
+  border-radius: 18px;
+  box-shadow:
+    0 0 14px rgba(139,0,255,0.25),
+    0 0 28px rgba(255,102,0,0.15);
+  padding: 2.5em 2em;
+  color: var(--halloween-green);
+  position: relative;
+  isolation: isolate; /* keep inner glows contained */
+}
+
+.halloween .resume-section h1 {
+  text-align: center;
+  margin-bottom: 0.5em;
+  font-size: 2.2em;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: var(--halloween-orange);
+  text-shadow:
+    0 0 6px rgba(255,102,0,0.45),
+    1px 1px 0 var(--halloween-black);
+}
+.halloween .resume-section title {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+  color: var(--halloween-orange);
+  text-shadow:
+    0 0 8px rgba(255,102,0,0.35),
+    1px 1px 0 var(--halloween-black);
+}
+
+.halloween .resume-section .subtitle {
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: 400;
+  margin-bottom: 1em;
+  color: var(--halloween-green);
+  text-shadow: 0 0 6px rgba(0,255,65,0.25);
+  letter-spacing: 0.5px;
+}
+
+.halloween .resume-section .contact-info {
+  text-align: center;
+  margin-bottom: 1.5em;
+  font-size: 1.08em;
+  color: var(--halloween-green);
+  opacity: 0.95;
+}
+
+.halloween .resume-section h2 {
+  text-align: center;
+  margin-top: 2em;
+  color: var(--halloween-orange);
+  font-size: 1.4em;
+  padding-bottom: 0.4em;
+  margin-bottom: 1em;
+  font-weight: 800;
+  border-bottom: 2px solid rgba(139,0,255,0.55);
+  text-shadow: 0 0 5px rgba(255,102,0,0.35);
+}
+
+.halloween .resume-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5em 0;
+}
+
+.halloween .resume-list li {
+  margin-bottom: 1.5em;
+  line-height: 1.75;
+  font-size: 1.08em;
+  color: var(--halloween-green);
+  text-shadow: 0 0 4px rgba(0,255,65,0.15);
+}
+
+.halloween .resume-section a {
+  color: var(--halloween-bright-orange);
+  text-decoration: underline;
+  word-break: break-word;
+  text-shadow: 0 0 6px rgba(255,149,0,0.25);
+}
+
+.halloween .resume-section a:hover {
+  color: var(--halloween-green);
+  text-decoration: underline;
+  text-shadow: 0 0 8px rgba(0,255,65,0.35);
+}
+
+.halloween .resume-date {
+  color: rgba(0,255,65,0.7);
+  font-size: 0.98em;
+  margin-left: 0.5em;
+}
+
+.halloween .resume-section ul ul {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-left: 1.2em;
+}
+
+.halloween .resume-section ul ul li {
+  margin-bottom: 0.5em;
+  font-size: 1em;
+  list-style: disc;
+  color: var(--halloween-green);
+}
+
+/* optional: faint corner web accents inside the card (very subtle) */
+.halloween .resume-section::before,
+.halloween .resume-section::after {
+  content: "";
+  position: absolute;
+  width: 120px; height: 120px;
+  opacity: 0.10;
+  border: 2px solid var(--halloween-purple);
+  border-radius: 50%;
+  filter: blur(0.5px);
+  pointer-events: none;
+}
+.halloween .resume-section::before { top: -30px; left: -30px; }
+.halloween .resume-section::after  { bottom: -30px; right: -30px; }
 
 /* CONTACT FORM (scoped) */
 .halloween .get-in-touch-section {
