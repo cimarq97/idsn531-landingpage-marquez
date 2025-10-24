@@ -1,22 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('theme');
+                if (t === 'halloween') document.documentElement.classList.add('halloween');
+            } catch (e) { }
+        })();
+    </script>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Resume - Camille Marquez</title>
     <meta name="description" content="Resume of Camille Marquez">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_halloween.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
+
 <body>
     <header>
-        <div class="header-bar">   
+        <div class="header-bar">
             <nav>
                 <ul class="nav-menu">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="projects.html">Projects</a></li>
                     <li><a href="resume.html">Resume</a></li>
                     <li><a href="contact.html">Contact</a></li>
+                    <button id="halloween-mode-toggle" class="linkedin-link">🎃 Halloween Mode</button>
                 </ul>
             </nav>
         </div>
@@ -26,18 +40,23 @@
         <section class="resume-section">
             <h1>Camille Marquez</h1>
             <p class="subtitle">Designer & Educator</p>
-            <p>Email: camillemarquezart@gmail.com | Orange County, CA | <a href="https://camillemarquezart.com" target="_blank">Website</a> | <a href="https://www.linkedin.com/in/camillemarquez/" target="_blank">LinkedIn</a> | <a href="https://www.instagram.com/camillemarquezart/" target="_blank">Instagram</a></p>
-           
-            
+            <p>Email: camillemarquezart@gmail.com | Orange County, CA | <a href="https://camillemarquezart.com"
+                    target="_blank">Website</a> | <a href="https://www.linkedin.com/in/camillemarquez/"
+                    target="_blank">LinkedIn</a> | <a href="https://www.instagram.com/camillemarquezart/"
+                    target="_blank">Instagram</a></p>
+
+
             <h2>EDUCATION</h2>
             <ul class="resume-list">
                 <li>
                     <strong>University of Southern California – Iovine and Young Academy</strong>, Los Angeles, CA<br>
-                    <em>Masters of Science in Integrated Design, Business and Technology</em> <span class="resume-date">Expected: May 2026</span><br>
+                    <em>Masters of Science in Integrated Design, Business and Technology</em> <span
+                        class="resume-date">Expected: May 2026</span><br>
                     GPA: 4.0
                 </li>
                 <li>
-                    <strong>California State University of Long Beach – School of Art and Design</strong>, Long Beach, CA<br>
+                    <strong>California State University of Long Beach – School of Art and Design</strong>, Long Beach,
+                    CA<br>
                     <em>Bachelors of Fine Art in Illustration</em> <span class="resume-date">December 2023</span><br>
                     Honors: President’s List, Graduated Summa Cum Laude<br>
                     GPA: 3.89
@@ -57,18 +76,25 @@
                     <strong>Allison A. Holtkamp, PsyD, Psychologist, Inc.</strong>, Remote, U.S.<br>
                     <em>Freelance Content Creator</em> <span class="resume-date">Aug 2025 – Present</span><br>
                     <ul>
-                        <li>Created text copy for Dr. Holtkamp’s social media accounts to share uplifting messages targeting the following audiences: career-women, women in STEM, minorities, first-generation college students and members of the LGBTQ+ community.</li>
+                        <li>Created text copy for Dr. Holtkamp’s social media accounts to share uplifting messages
+                            targeting the following audiences: career-women, women in STEM, minorities, first-generation
+                            college students and members of the LGBTQ+ community.</li>
                         <li>Developed visual elements and all text copy for Dr. Holtkamp’s instagram platform.</li>
-                        <li>Conducted research into current trends within mental health pertaining to target audience. Translated research results into easily understandable and engaging content for instagram.</li>
+                        <li>Conducted research into current trends within mental health pertaining to target audience.
+                            Translated research results into easily understandable and engaging content for instagram.
+                        </li>
                     </ul>
                 </li>
                 <li>
                     <strong>Nova Scholar Education</strong>, Remote, U.S. + Canada<br>
-                    <em>Graduate Research Mentor and Instructor of Design Thinking</em> <span class="resume-date">Jul 2025 – Present</span><br>
+                    <em>Graduate Research Mentor and Instructor of Design Thinking</em> <span class="resume-date">Jul
+                        2025 – Present</span><br>
                     <ul>
-                        <li>Mentored first-generation college school students on how to design, organize and manage personalized research projects using college-level instruction.</li>
+                        <li>Mentored first-generation college school students on how to design, organize and manage
+                            personalized research projects using college-level instruction.</li>
                         <li>Instructed courses on Figma basics and introductory UX/UI design.</li>
-                        <li>Taught “design thinking” principles in small group settings in support of the Nova Patent Program.</li>
+                        <li>Taught “design thinking” principles in small group settings in support of the Nova Patent
+                            Program.</li>
                         <li>Served as a career development counselor.</li>
                     </ul>
                 </li>
@@ -76,8 +102,11 @@
                     <strong>Nordstrom</strong>, Brea, CA<br>
                     <em>Visual Merchandiser</em> <span class="resume-date">Jan 2024 – Jan 2025</span><br>
                     <ul>
-                        <li>Executed seasonal merchandising and product launch strategies in collaboration with VM team.</li>
-                        <li>Analyzed sales data to guide merchandising decisions and improve departmental performance. During my time as a visual merchandiser, my departments all experienced at least a 10% improvement in sales.</li>
+                        <li>Executed seasonal merchandising and product launch strategies in collaboration with VM team.
+                        </li>
+                        <li>Analyzed sales data to guide merchandising decisions and improve departmental performance.
+                            During my time as a visual merchandiser, my departments all experienced at least a 10%
+                            improvement in sales.</li>
                         <li>Designed and managed floor moves and product displays to optimize customer experience.</li>
                     </ul>
                 </li>
@@ -94,8 +123,10 @@
                     <strong>Spectrum Montessori</strong>, Irvine, CA<br>
                     <em>Teaching Assistant</em> <span class="resume-date">Aug 2018 – Jul 2020</span><br>
                     <ul>
-                        <li>Supported teachers in lesson planning and classroom management for students ages 18 months - 6 years.</li>
-                        <li>Facilitated daily activities and adapted instruction to children across a spectrum of diverse learning needs, including neurodivergent and behaviorally challenged.</li>
+                        <li>Supported teachers in lesson planning and classroom management for students ages 18 months -
+                            6 years.</li>
+                        <li>Facilitated daily activities and adapted instruction to children across a spectrum of
+                            diverse learning needs, including neurodivergent and behaviorally challenged.</li>
                         <li>Maintained strong communication with students’ families to tailor their learning goals.</li>
                     </ul>
                 </li>
@@ -104,8 +135,10 @@
                     <em>Teaching Assistant</em> <span class="resume-date">Aug 2017 – Jul 2018</span><br>
                     <ul>
                         <li>Served as a substitute teacher for library, art and physical education as needed.</li>
-                        <li>Assisted teachers across multiple classrooms and maintained organized learning environments.</li>
-                        <li>Supported office operations while fostering positive relationships with students and families.</li>
+                        <li>Assisted teachers across multiple classrooms and maintained organized learning environments.
+                        </li>
+                        <li>Supported office operations while fostering positive relationships with students and
+                            families.</li>
                     </ul>
                 </li>
             </ul>
@@ -116,13 +149,17 @@
                     <strong>Ireland Outreach International</strong>, Dublin, Ireland<br>
                     <em>Administrative Assistant</em> <span class="resume-date">Summer of 2018</span><br>
                     <ul>
-                        <li>Conducted administrative support for an international school construction project in Nigeria.</li>
-                        <li>Coordinated communication with field teams and organized community fundraisers in Dublin, within the local church community. Fundraising efforts included organizing a community baked goods sale, used book sale and email campaign outreach.</li>
+                        <li>Conducted administrative support for an international school construction project in
+                            Nigeria.</li>
+                        <li>Coordinated communication with field teams and organized community fundraisers in Dublin,
+                            within the local church community. Fundraising efforts included organizing a community baked
+                            goods sale, used book sale and email campaign outreach.</li>
                     </ul>
                 </li>
                 <li>
                     <strong>Lassen Pines Christian Camp</strong>, Lassen Pines, CA<br>
-                    <em>Cabin Counselor and Youth Leader</em> <span class="resume-date">Summers of 2016 + 2017</span><br>
+                    <em>Cabin Counselor and Youth Leader</em> <span class="resume-date">Summers of 2016 +
+                        2017</span><br>
                     <ul>
                         <li>Supervised and mentored campers ages 13–17, ensuring safety and inclusion.</li>
                         <li>Led team-building activities and group discussions to foster leadership development.</li>
@@ -138,5 +175,25 @@
             <p>&copy; Camille Marquez 2025</p>
         </div>
     </footer>
-</body>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const root = document.documentElement;
+        const btn  = document.getElementById('halloween-mode-toggle');
+        if (!btn) return;
+
+        function updateButtonLabel() {
+          const isHall = root.classList.contains('halloween');
+          btn.textContent = isHall ? '💡 Normal Mode' : '🎃 Halloween Mode';
+        }
+
+        updateButtonLabel();
+
+        btn.addEventListener('click', function () {
+          const isHall = root.classList.toggle('halloween');
+          try { localStorage.setItem('theme', isHall ? 'halloween' : 'normal'); } catch (e) {}
+          updateButtonLabel();
+        });
+      });
+    </script>
+  </body>
 </html>
