@@ -52,11 +52,11 @@
 @keyframes backgroundPulse {
 
   0%,
-  100% {
+  10% {
     opacity: 0.1;
   }
 
-  50% {
+  10% {
     opacity: 0.15;
   }
 }
@@ -88,40 +88,41 @@
   z-index: 100;
 }
 
-.halloween .header-bar h1 {
-  text-align: center;
-  margin: 0 auto 20px auto;
-  padding: 20px;
-  font-size: 3rem;
+.halloween h1 {
+  font-size: 2.5rem;
   color: var(--halloween-orange);
   text-shadow:
     0 0 10px var(--halloween-orange),
-    0 0 20px var(--halloween-orange),
-    0 0 30px var(--halloween-purple),
-    0 0 40px var(--halloween-purple),
-    3px 3px 0 var(--halloween-black);
-  animation: flicker 3s infinite;
+    0 0 20px var(--halloween-purple);
+  position: center;
+  display: inline-block;
+  font-weight: 900;
 }
 
-@keyframes flicker {
+/* Motion only when allowed */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes drip {
+    0% {
+      transform: translateY(-6px);
+      opacity: 0.95;
+    }
 
-  0%,
-  18%,
-  22% {
-    text-shadow:
-      0 0 10px var(--halloween-orange),
-      0 0 20px var(--halloween-orange),
-      0 0 30px var(--halloween-purple),
-      0 0 40px var(--halloween-purple),
-      3px 3px 0 var(--halloween-black);
+    60% {
+      transform: translateY(6px);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateY(0);
+      opacity: 0.9;
+    }
   }
 
-  20%,
-  24%,
-  55% {
-    text-shadow: none;
+  .halloween .header-bar h1.slime::before {
+    animation: drip 2.6s ease-in-out infinite;
   }
 }
+
 
 /* Nav (scoped + fixed class selectors) */
 .halloween .nav-menu {
@@ -225,13 +226,12 @@
   margin-bottom: 20px;
   letter-spacing: 3px;
   color: var(--halloween-orange);
+  -webkit-text-stroke: 1px var(--halloween-black);
   text-shadow:
-    0 0 10px var(--halloween-orange),
     0 0 20px var(--halloween-orange),
     0 0 30px var(--halloween-purple),
-    0 0 40px var(--halloween-purple),
     5px 5px 0 var(--halloween-black);
-  animation: glowPulse 2s ease-in-out infinite;
+
 }
 
 @keyframes glowPulse {
@@ -295,15 +295,23 @@
 }
 
 .halloween .about-container h3 {
-  font-size: 3rem;
-  font-weight: 700;
+  font-size: 2.5rem;
+  font-weight: 900;
+  display: inline-block;
+  padding: 6px 16px;
+  background: rgba(0, 0, 0, 0.65);
+  /* adds contrast panel */
+  border-radius: 8px;
+
+  color: var(--halloween-orange);
+  -webkit-text-stroke: 1px var(--halloween-black);
+  /* sharp outline */
+  text-shadow:
+    0 0 4px var(--halloween-orange),
+    0 0 8px var(--halloween-purple);
+
   margin-bottom: 40px;
   text-align: center;
-  color: var(--halloween-orange);
-  text-shadow:
-    0 0 10px var(--halloween-orange),
-    0 0 20px var(--halloween-orange),
-    0 0 30px var(--halloween-purple);
 }
 
 .halloween .profile-pic-wrap {
@@ -400,7 +408,7 @@
 .halloween .interests-list li {
   margin-bottom: 15px;
   font-size: 1.2em;
-  color: var(--halloween-green);
+  color: var(--halloween-orange);
   text-shadow: 0 0 10px var(--halloween-green);
   position: relative;
   padding-left: 30px;
@@ -438,14 +446,13 @@
   display: inline-block;
   background: transparent;
   color: var(--halloween-green);
-  border: 3px solid var(--halloween-orange);
+  border: 2px solid var(--halloween-orange);
   border-radius: 30px;
-  padding: 15px 40px;
-  font-weight: 700;
-  font-size: 1.2rem;
+  padding: 15px 30px;
+  font-weight: 600;
   text-decoration: none;
   text-align: center;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   transition: all 0.3s ease;
   box-shadow:
     0 0 15px var(--halloween-orange),
