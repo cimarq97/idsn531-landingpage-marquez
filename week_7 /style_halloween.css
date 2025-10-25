@@ -1,0 +1,909 @@
+/* Halloween Color Palette (scoped to html.halloween) */
+:root.halloween {
+  --halloween-black: #000000;
+  --halloween-dark: #1a1a1a;
+  --halloween-orange: #ff6600;
+  --halloween-bright-orange: #ff9500;
+  --halloween-green: #00ff41;
+  --halloween-dark-green: #0a5f20;
+  --halloween-purple: #8b00ff;
+  --halloween-dark-purple: #4b0082;
+  --halloween-gray: #2d2d2d;
+}
+
+/* Keep the global reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base page frame (scoped) */
+.halloween body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Butcherman', cursive;
+  background: var(--halloween-black);
+  color: var(--halloween-green);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Animated Halloween Background (scoped) */
+.halloween body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 20% 50%, var(--halloween-purple) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, var(--halloween-dark-green) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, var(--halloween-orange) 0%, transparent 50%);
+  opacity: 0.1;
+  z-index: 0;
+  animation: backgroundPulse 8s ease-in-out infinite;
+}
+
+@keyframes backgroundPulse {
+
+  0%,
+  10% {
+    opacity: 0.1;
+  }
+
+  10% {
+    opacity: 0.15;
+  }
+}
+
+/* Halloween Fonts (utility classes remain global) */
+.creepster-text {
+  font-family: 'Creepster', cursive;
+  letter-spacing: 2px;
+}
+
+.nosifer-text {
+  font-family: 'Nosifer', cursive;
+  letter-spacing: 3px;
+}
+
+.butcherman-text {
+  font-family: 'Butcherman', cursive;
+}
+
+/* Header (scoped) */
+.halloween header {
+  width: 100%;
+  background: linear-gradient(135deg, var(--halloween-dark-purple) 0%, var(--halloween-black) 100%);
+  padding: 20px 0;
+  text-align: center;
+  border-bottom: 3px solid var(--halloween-orange);
+  box-shadow: 0 0 20px var(--halloween-purple), 0 0 40px var(--halloween-orange);
+  position: relative;
+  z-index: 100;
+}
+
+.halloween h1 {
+  font-size: 2.5rem;
+  color: var(--halloween-orange);
+  text-shadow:
+    0 0 10px var(--halloween-orange),
+    0 0 20px var(--halloween-purple);
+  position: center;
+  display: inline-block;
+  font-weight: 900;
+}
+
+/* Motion only when allowed */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes drip {
+    0% {
+      transform: translateY(-6px);
+      opacity: 0.95;
+    }
+
+    60% {
+      transform: translateY(6px);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateY(0);
+      opacity: 0.9;
+    }
+  }
+
+  .halloween .header-bar h1.slime::before {
+    animation: drip 2.6s ease-in-out infinite;
+  }
+}
+
+
+/* Nav (scoped + fixed class selectors) */
+.halloween .nav-menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.halloween .nav-menu a {
+  color: var(--halloween-green);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 5px var(--halloween-green);
+  position: relative;
+}
+
+.halloween .nav-menu a::after {
+  content: "🎃";
+  position: absolute;
+  left: -25px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.halloween .nav-menu a:hover {
+  color: var(--halloween-orange);
+  transform: scale(1.1) rotate(-2deg);
+  text-shadow:
+    0 0 10px var(--halloween-orange),
+    0 0 20px var(--halloween-orange),
+    0 0 30px var(--halloween-purple);
+}
+
+.halloween .nav-menu a:hover::after {
+  opacity: 1;
+  left: -30px;
+}
+
+/* HERO SECTION (scoped + fixed class selectors) */
+.halloween .hero {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.halloween .video-hero {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--halloween-black);
+}
+
+.halloween .background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  opacity: 0.3;
+  filter: hue-rotate(280deg) saturate(2);
+}
+
+.halloween .video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg,
+      rgba(139, 0, 255, 0.3) 0%,
+      rgba(0, 0, 0, 0.7) 50%,
+      rgba(255, 102, 0, 0.3) 100%);
+  z-index: 2;
+}
+
+.halloween .hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: var(--halloween-green);
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.halloween .hero-content h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+  letter-spacing: 3px;
+  color: var(--halloween-orange);
+  -webkit-text-stroke: 1px var(--halloween-black);
+  text-shadow:
+    0 0 20px var(--halloween-orange),
+    0 0 30px var(--halloween-purple),
+    5px 5px 0 var(--halloween-black);
+
+}
+
+@keyframes glowPulse {
+
+  0%,
+  50% {
+    text-shadow:
+      0 0 10px var(--halloween-orange),
+      0 0 20px var(--halloween-orange),
+      0 0 30px var(--halloween-purple),
+      0 0 40px var(--halloween-purple),
+      5px 5px 0 var(--halloween-black);
+  }
+
+  50% {
+    text-shadow:
+      0 0 20px var(--halloween-orange),
+      0 0 40px var(--halloween-orange),
+      0 0 60px var(--halloween-purple),
+      0 0 80px var(--halloween-purple),
+      5px 5px 0 var(--halloween-black);
+  }
+}
+
+.halloween .subtitle {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 15px;
+  color: var(--halloween-green);
+  text-shadow:
+    0 0 10px var(--halloween-green),
+    0 0 20px var(--halloween-green),
+    2px 2px 4px var(--halloween-black);
+  text-align: center;
+}
+
+.halloween .credentials {
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: var(--halloween-purple);
+  margin-bottom: 10px;
+  text-shadow:
+    0 0 10px var(--halloween-purple),
+    1px 1px 4px var(--halloween-black);
+  text-align: center;
+}
+
+/* ABOUT SECTION (scoped + fixed class selectors) */
+.halloween .about {
+  background: var(--halloween-black);
+  color: var(--halloween-green);
+  padding: 80px 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.halloween .about-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.halloween .about-container h3 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  display: inline-block;
+  padding: 6px 16px;
+  background: rgba(0, 0, 0, 0.65);
+  /* adds contrast panel */
+  border-radius: 8px;
+
+  color: var(--halloween-orange);
+  -webkit-text-stroke: 1px var(--halloween-black);
+  /* sharp outline */
+  text-shadow:
+    0 0 4px var(--halloween-orange),
+    0 0 8px var(--halloween-purple);
+
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.halloween .profile-pic-wrap {
+  display: inline-block;
+  position: relative;
+  border-radius: 50%;
+  float: left;
+  margin: 0 30px 20px 0;
+}
+
+.halloween .profile-pic {
+  display: block;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid var(--halloween-orange);
+  box-shadow:
+    0 0 20px var(--halloween-orange),
+    0 0 40px var(--halloween-purple),
+    0 10px 30px rgba(0, 0, 0, 0.8);
+  transition: transform 300ms ease, filter 300ms ease, border-color 0.3s ease;
+  position: relative;
+  z-index: 2;
+  filter: contrast(1.1) saturate(1.2);
+}
+
+.halloween .profile-pic:hover {
+  transform: scale(1.06) rotate(-3deg);
+  filter: contrast(1.2) saturate(1.4) drop-shadow(0 0 30px var(--halloween-green));
+  border-color: var(--halloween-green);
+}
+
+.halloween .profile-pic-wrap::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  width: calc(100% + 120px);
+  height: calc(100% + 120px);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  background: radial-gradient(circle at center,
+      rgba(255, 102, 0, 0.8) 0%,
+      rgba(139, 0, 255, 0.5) 30%,
+      rgba(0, 255, 65, 0.3) 50%,
+      rgba(0, 0, 0, 0) 70%);
+  filter: blur(25px);
+  mix-blend-mode: screen;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.halloween .profile-pic-wrap:hover::after {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.halloween .about-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  text-align: center;
+  color: var(--halloween-green);
+  margin-bottom: 20px;
+  text-shadow: 0 0 5px var(--halloween-green);
+}
+
+.halloween .about-container::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* SKILLS & INTERESTS (scoped) */
+.halloween .skills-container,
+.halloween .interests-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.halloween .skills-list,
+.halloween .interests-list {
+  list-style: none;
+  padding: 10px;
+  margin: 0 0 20px 0;
+}
+
+.halloween .skills-list li,
+.halloween .interests-list li {
+  margin-bottom: 15px;
+  font-size: 1.2em;
+  color: var(--halloween-orange);
+  text-shadow: 0 0 10px var(--halloween-green);
+  position: relative;
+  padding-left: 30px;
+}
+
+.halloween .skills-list li::before,
+.halloween .interests-list li::before {
+  content: "🕷️";
+  position: absolute;
+  left: 0;
+  animation: swing 2s ease-in-out infinite;
+}
+
+@keyframes swing {
+
+  0%,
+  100% {
+    transform: rotate(-5deg);
+  }
+
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+.halloween .skills-list li:hover,
+.halloween .interests-list li:hover {
+  color: var(--halloween-orange);
+  text-shadow: 0 0 15px var(--halloween-orange);
+  transform: translateX(5px);
+}
+
+/* BUTTONS (scoped + fixed class selector) */
+.halloween .linkedin-link {
+  display: inline-block;
+  background: transparent;
+  color: var(--halloween-green);
+  border: 2px solid var(--halloween-orange);
+  border-radius: 30px;
+  padding: 15px 30px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow:
+    0 0 15px var(--halloween-orange),
+    0 0 30px var(--halloween-purple),
+    inset 0 0 15px rgba(255, 102, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.halloween .linkedin-link::before {
+  content: "👻";
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.halloween .linkedin-link:hover {
+  background: var(--halloween-orange);
+  color: var(--halloween-black);
+  border-color: var(--halloween-green);
+  transform: scale(1.05);
+  box-shadow:
+    0 0 30px var(--halloween-orange),
+    0 0 60px var(--halloween-purple),
+    0 0 90px var(--halloween-green);
+}
+
+.halloween .linkedin-link:hover::before {
+  left: 10px;
+}
+
+.halloween .contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+/* FOOTER (scoped) */
+.halloween footer {
+  background: linear-gradient(135deg, var(--halloween-black) 0%, var(--halloween-dark-purple) 100%);
+  color: var(--halloween-green);
+  text-align: center;
+  padding: 40px 20px;
+  border-top: 3px solid var(--halloween-orange);
+  box-shadow: 0 -5px 20px var(--halloween-purple);
+  margin-top: auto;
+  position: relative;
+  z-index: 10;
+}
+
+.halloween footer p {
+  text-shadow: 0 0 10px var(--halloween-green);
+}
+
+/* PROJECTS (scoped) */
+.halloween .projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5em;
+  justify-content: center;
+  margin-top: 2em;
+}
+
+.halloween .project-card {
+  background: linear-gradient(135deg, var(--halloween-gray) 0%, var(--halloween-dark) 100%);
+  border: 3px solid var(--halloween-purple);
+  border-radius: 18px;
+  box-shadow:
+    0 0 20px var(--halloween-purple),
+    0 0 40px rgba(139, 0, 255, 0.3),
+    0 8px 32px rgba(0, 0, 0, 0.5);
+  max-width: 340px;
+  min-width: 260px;
+  padding: 2em 1.5em 1.5em 1.5em;
+  text-align: center;
+  color: var(--halloween-green);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.halloween .project-card::before {
+  content: "🦇";
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  font-size: 3rem;
+  opacity: 0.2;
+  transition: all 0.3s ease;
+}
+
+.halloween .project-card:hover {
+  transform: translateY(-15px) scale(1.05);
+  box-shadow:
+    0 0 30px var(--halloween-orange),
+    0 0 60px var(--halloween-purple),
+    0 0 90px var(--halloween-green),
+    0 16px 48px rgba(0, 0, 0, 0.8);
+  border-color: var(--halloween-orange);
+}
+
+.halloween .project-card:hover::before {
+  top: 10px;
+  right: 10px;
+  opacity: 0.6;
+  transform: rotate(20deg);
+}
+
+.halloween .project-img {
+  width: 100%;
+  max-width: 220px;
+  border-radius: 12px;
+  margin-bottom: 1.2em;
+  border: 2px solid var(--halloween-orange);
+  box-shadow: 0 0 20px rgba(255, 102, 0, 0.5);
+  filter: contrast(1.2) saturate(1.3);
+}
+
+.halloween .project-card h3 {
+  font-size: 1.4em;
+  margin: 0.5em 0 0.3em 0;
+  color: var(--halloween-orange);
+  font-weight: 700;
+  text-shadow: 0 0 10px var(--halloween-orange);
+}
+
+.halloween .project-card p {
+  color: var(--halloween-green);
+  font-size: 1.05em;
+  margin-bottom: 0;
+  text-shadow: 0 0 5px var(--halloween-green);
+}
+/* ===== Resume (Halloween) ===== */
+.halloween .resume-section {
+  max-width: 800px;
+  margin: 2em auto;
+  background: linear-gradient(
+    180deg,
+    var(--halloween-dark) 0%,
+    rgba(0,0,0,0.92) 100%
+  );
+  border: 3px solid var(--halloween-purple);
+  border-radius: 18px;
+  box-shadow:
+    0 0 14px rgba(139,0,255,0.25),
+    0 0 28px rgba(255,102,0,0.15);
+  padding: 2.5em 2em;
+  color: var(--halloween-green);
+  position: relative;
+  isolation: isolate; /* keep inner glows contained */
+}
+
+.halloween .resume-section h1 {
+  text-align: center;
+  margin-bottom: 0.5em;
+  font-size: 2.2em;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: var(--halloween-orange);
+  text-shadow:
+    0 0 6px rgba(255,102,0,0.45),
+    1px 1px 0 var(--halloween-black);
+}
+.halloween .resume-section title {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+  color: var(--halloween-orange);
+  text-shadow:
+    0 0 8px rgba(255,102,0,0.35),
+    1px 1px 0 var(--halloween-black);
+}
+
+.halloween .resume-section .subtitle {
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: 400;
+  margin-bottom: 1em;
+  color: var(--halloween-green);
+  text-shadow: 0 0 6px rgba(0,255,65,0.25);
+  letter-spacing: 0.5px;
+}
+
+.halloween .resume-section .contact-info {
+  text-align: center;
+  margin-bottom: 1.5em;
+  font-size: 1.08em;
+  color: var(--halloween-green);
+  opacity: 0.95;
+}
+
+.halloween .resume-section h2 {
+  text-align: center;
+  margin-top: 2em;
+  color: var(--halloween-orange);
+  font-size: 1.4em;
+  padding-bottom: 0.4em;
+  margin-bottom: 1em;
+  font-weight: 800;
+  border-bottom: 2px solid rgba(139,0,255,0.55);
+  text-shadow: 0 0 5px rgba(255,102,0,0.35);
+}
+
+.halloween .resume-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5em 0;
+}
+
+.halloween .resume-list li {
+  margin-bottom: 1.5em;
+  line-height: 1.75;
+  font-size: 1.08em;
+  color: var(--halloween-green);
+  text-shadow: 0 0 4px rgba(0,255,65,0.15);
+}
+
+.halloween .resume-section a {
+  color: var(--halloween-bright-orange);
+  text-decoration: underline;
+  word-break: break-word;
+  text-shadow: 0 0 6px rgba(255,149,0,0.25);
+}
+
+.halloween .resume-section a:hover {
+  color: var(--halloween-green);
+  text-decoration: underline;
+  text-shadow: 0 0 8px rgba(0,255,65,0.35);
+}
+
+.halloween .resume-date {
+  color: rgba(0,255,65,0.7);
+  font-size: 0.98em;
+  margin-left: 0.5em;
+}
+
+.halloween .resume-section ul ul {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-left: 1.2em;
+}
+
+.halloween .resume-section ul ul li {
+  margin-bottom: 0.5em;
+  font-size: 1em;
+  list-style: disc;
+  color: var(--halloween-green);
+}
+
+/* optional: faint corner web accents inside the card (very subtle) */
+.halloween .resume-section::before,
+.halloween .resume-section::after {
+  content: "";
+  position: absolute;
+  width: 120px; height: 120px;
+  opacity: 0.10;
+  border: 2px solid var(--halloween-purple);
+  border-radius: 50%;
+  filter: blur(0.5px);
+  pointer-events: none;
+}
+.halloween .resume-section::before { top: -30px; left: -30px; }
+.halloween .resume-section::after  { bottom: -30px; right: -30px; }
+
+/* CONTACT FORM (scoped) */
+.halloween .get-in-touch-section {
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.halloween .get-in-touch-section h2 {
+  text-align: center;
+  margin-bottom: 0.7em;
+  color: var(--halloween-orange);
+  font-size: 2.5rem;
+  text-shadow:
+    0 0 10px var(--halloween-orange),
+    0 0 20px var(--halloween-purple);
+}
+
+.halloween .get-in-touch-section p {
+  text-align: center;
+  font-size: 1.2em;
+  margin: 0 auto;
+  max-width: 600px;
+  color: var(--halloween-green);
+  text-shadow: 0 0 5px var(--halloween-green);
+}
+
+.halloween .contact-form-section {
+  max-width: 500px;
+  margin: 2em auto;
+  background: var(--halloween-dark);
+  border: 3px solid var(--halloween-orange);
+  border-radius: 12px;
+  box-shadow:
+    0 0 20px var(--halloween-orange),
+    0 0 40px var(--halloween-purple),
+    0 0 60px var(--halloween-green);
+  padding: 2.5em;
+  color: var(--halloween-green);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.halloween .contact-form-section::before {
+  content: "🎃";
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+}
+
+.halloween .contact-form-section:hover {
+  box-shadow:
+    0 0 30px var(--halloween-orange),
+    0 0 60px var(--halloween-purple),
+    0 0 90px var(--halloween-green);
+  transform: scale(1.02);
+}
+
+.halloween .contact-form-section label {
+  display: block;
+  margin-bottom: 0.5em;
+  color: var(--halloween-orange);
+  font-weight: 700;
+  font-size: 1.1em;
+  text-shadow: 0 0 5px var(--halloween-orange);
+}
+
+.halloween .contact-form-section input[type="text"],
+.halloween .contact-form-section input[type="email"],
+.halloween .contact-form-section textarea {
+  background: var(--halloween-black);
+  color: var(--halloween-green);
+  border: 2px solid var(--halloween-purple);
+  border-radius: 8px;
+  padding: 0.8em;
+  font-size: 1em;
+  width: 100%;
+  font-family: 'Butcherman', cursive;
+  box-shadow:
+    inset 0 0 10px rgba(139, 0, 255, 0.3),
+    0 0 10px rgba(139, 0, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.halloween .contact-form-section input:focus,
+.halloween .contact-form-section textarea:focus {
+  outline: none;
+  border-color: var(--halloween-orange);
+  box-shadow:
+    inset 0 0 10px rgba(255, 102, 0, 0.3),
+    0 0 20px var(--halloween-orange),
+    0 0 40px var(--halloween-purple);
+  color: var(--halloween-orange);
+}
+
+.halloween .contact-form-section button[type="submit"] {
+  background: transparent;
+  color: var(--halloween-green);
+  border: 3px solid var(--halloween-orange);
+  border-radius: 8px;
+  padding: 0.9em 2.5em;
+  font-size: 1.2em;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Creepster', cursive;
+  letter-spacing: 2px;
+  box-shadow:
+    0 0 15px var(--halloween-orange),
+    0 0 30px var(--halloween-purple);
+  transition: all 0.3s ease;
+  margin-top: 1em;
+}
+
+.halloween .contact-form-section button[type="submit"]:hover {
+  background: var(--halloween-orange);
+  color: var(--halloween-black);
+  border-color: var(--halloween-green);
+  box-shadow:
+    0 0 30px var(--halloween-orange),
+    0 0 60px var(--halloween-purple),
+    0 0 90px var(--halloween-green);
+  transform: scale(1.08);
+}
+
+/* RESPONSIVE (scoped in media queries) */
+@media (max-width: 900px) {
+  .halloween .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .halloween .subtitle {
+    font-size: 1.5rem;
+  }
+
+  .halloween .video-hero {
+    height: 50vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .halloween .profile-pic-wrap {
+    float: none;
+    display: block;
+    margin: 0 auto 30px;
+  }
+
+  .halloween .profile-pic {
+    width: 200px;
+    height: 200px;
+  }
+
+  .halloween .about-text {
+    text-align: left;
+  }
+
+  .halloween .video-hero {
+    height: 40vh;
+  }
+
+  .halloween .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .halloween .nav-menu {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
