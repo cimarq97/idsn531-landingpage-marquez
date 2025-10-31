@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'halloween') document.documentElement.classList.add('halloween');
+      } catch (e) { }
+    })();
+  </script>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Projects - Camille Marquez</title>
+  <meta name="description" content="Portfolio projects by Camille Marquez">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style_halloween.css">
+  <link href="https://fonts.googleapis.com/css2?family=Sixtyfour+Convergence&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="menu.js" defer></script>
+</head>
+
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header>
+    <nav class="navbar">
+      <button class="hamburger" aria-label="Toggle menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <button id="halloween-mode-toggle" class="linkedin-link">🎃 Halloween Mode</button>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <div class="projects-container">
+      <a href="https://camillemarquezart.com" class="project-card" target="_blank">
+        <img src="images/img/img/shop.png" alt="Shop" class="project-img">
+        <h3>My Illustration Shop</h3>
+        <p>Visit my shop to order custom watercolor art!</p>
+      </a>
+      <a href="https://camillemarquezart.com" class="project-card" target="_blank">
+        <img src="images/img/img/portfolio.jpg" alt="Portfolio" class="project-img">
+        <h3>My Portfolio</h3>
+        <p>Click here to see some of my illustration work.</p>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-bar">
+      <p>&copy; Camille Marquez 2025</p>
+    </div>
+  </footer>
+  <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const root = document.documentElement;
+        const btn  = document.getElementById('halloween-mode-toggle');
+        if (!btn) return;
+
+        function updateButtonLabel() {
+          const isHall = root.classList.contains('halloween');
+          btn.textContent = isHall ? '💡 Normal Mode' : '🎃 Halloween Mode';
+        }
+
+        updateButtonLabel();
+
+        btn.addEventListener('click', function () {
+          const isHall = root.classList.toggle('halloween');
+          try { localStorage.setItem('theme', isHall ? 'halloween' : 'normal'); } catch (e) {}
+          updateButtonLabel();
+        });
+      });
+    </script>
+  </body>
+</html>
